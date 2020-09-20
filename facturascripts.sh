@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILE=/var/www/html/.htaccess
 if [ ! -f "$FILE" ]; then

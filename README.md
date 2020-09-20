@@ -1,26 +1,21 @@
 # docker-facturascripts
-FacturaScripts official Docker image. More info at https://facturascripts.com/descargar/docker
+FacturaScripts unofficial Docker image. Forked the original FacturaScripts to work with ARMv7 architecture (aka Raspberry Pi). It uses a fork of Mariadb and entrypoint script is also adapted. I also changed exposed port to 8001 for my purposes. Target FS version is 2020.61, upgrade it in the Dockerfile.
 
 ## Run
+Run the container.
 ```
-$ docker run -d --name facturascripts -p 80:80 facturascripts/facturascripts:latest
-```
-
-## Requirements
-**mysql-server** is required. You can use the MySQL official docker image:
-```
-$ docker pull mysql
-$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=mypassword -d -p 3306:3306 mysql:latest
-
+$ docker run -d --name facturascripts -p 8001:80 facturascripts:latest
 ```
 
-### Install FacturaScripts
-When installing FacturaScripts, remember that if you use a mysql container, the MySQL host is the IP of the machine (or the name of the container) and not localhost.
-​
-## Build your image
-You can get the source file and build your own image.
+Run the FS container with database.
 ```
-$ git clone https://github.com/FacturaScripts/docker-facturascripts.git
+$ docker-compose up -d
+```
+
+## Build the image
+You can get the source file and build the image.
+```
+$ git clone https://github.com/pmontp19/docker-facturascripts.git
 $ cd docker-facturascripts
 $ docker build -t facturascripts:latest .
 ```

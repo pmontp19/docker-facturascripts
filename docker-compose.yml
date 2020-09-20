@@ -3,7 +3,7 @@ version: '3'
 services:
 
   mysql:
-    image: mysql:8.0
+    image: yobasystems/alpine-mariadb
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
@@ -17,7 +17,7 @@ services:
     image: facturascripts/facturascripts:latest
     restart: always
     ports:
-      - 80:80
+      - 8001:80
     volumes:
       - ./facturascripts:/var/www/html
     links:
