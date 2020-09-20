@@ -14,7 +14,7 @@ services:
       - ./mysql:/var/lib/mysql
 
   facturascripts:
-    image: facturascripts/facturascripts:latest
+    image: facturascripts:latest
     restart: always
     ports:
       - 8001:80
